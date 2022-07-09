@@ -1,0 +1,23 @@
+version: '3'
+services:
+  todofrontend:
+    build: './todo-app/front-end'
+    depends on:
+      - todobackend
+    environment:
+      - FRONT_HOST=todobackend
+    ports:
+      - 3000:3000
+  
+  todobackend:
+    build: './todo-app/back-end'
+    ports: 
+      -3001:3001
+  
+  todotests:
+    build: './todo-app/tests'
+    depends_on:
+      - todofrontend
+      - todobackend
+    environment:
+      - FRONT_HOST=todofrontend
