@@ -1,1 +1,1 @@
-docker container -rm
+docker container rm -f 01container

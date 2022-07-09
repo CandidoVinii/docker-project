@@ -1,1 +1,1 @@
-docker ps -a
+docker container ls -f name=01container
